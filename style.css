@@ -23,16 +23,70 @@ section {
 
 .hero-inner {
   animation: fadeIn 2s ease-out;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-inner:hover {
+  transform: scale(1.05);
+}
+
+.hero-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.hello-left {
+  transform: translateX(-20px);
+}
+
+.stella-right {
+  transform: translateX(20px);
 }
 
 .metal-text {
   font-size: 5rem;
   font-weight: bold;
-  background: linear-gradient(120deg, #e6e6e6, #a8a8a8, #ffffff);
+  position: relative;
+  background: 
+    repeating-linear-gradient(135deg, rgba(180,180,180,0.12) 0px, rgba(180,180,180,0.12) 2px, transparent 2px, transparent 10px), /* subtle grunge */
+    linear-gradient(120deg, #f8f8f8 0%, #e6e6e6 10%, #bdbdbd 25%, #888 40%, #fff 55%, #a8a8a8 70%, #e6e6e6 85%, #222 100%),
+    radial-gradient(ellipse at 60% 40%, rgba(241,198,220,0.5) 0%, rgba(241,198,220,0.1) 40%, transparent 70%),
+    linear-gradient(100deg, transparent 40%, #fff 48%, #fff 52%, transparent 60%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-blend-mode: multiply, lighten, lighten, lighten;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
-  text-shadow: 0 0 15px rgba(255,255,255,0.3);
+  text-shadow:
+    2px 2px 0 #bdbdbd,
+    4px 4px 0 #888,
+    6px 6px 0 #222,
+    0 1px 0 #fff,
+    0 0 2px #fff;
+  letter-spacing: 0.04em;
   margin: 0.5rem 0;
+}
+
+.shine {
+  text-shadow:
+    0 1px 8px rgba(255,255,255,0.25),
+    0 0px 2px #fff;
+  transition: text-shadow 0.3s;
+}
+
+.metallic-shine {
+  background: 
+    linear-gradient(120deg, #fff 50%, #e6e6e6 60%, #bdbdbd 70%, #fff 100%),
+    linear-gradient(90deg, transparent 30%, #fff 40%, #fff 60%, transparent 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow:
+    0 2px 8px #222,
+    0 1px 0 #fff;
 }
 
 .tagline {
@@ -53,6 +107,14 @@ section {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255,255,255,0.1);
   width: 200px;
+  color: inherit;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.08);
+  z-index: 1;
 }
 
 form {
@@ -81,6 +143,27 @@ button {
   cursor: pointer;
 }
 
+.resume-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2.2rem;
+  background: #f1c6dc;
+  color: #1c1c1c;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+  box-shadow: 0 2px 8px rgba(241,198,220,0.15);
+  cursor: pointer;
+}
+
+.resume-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(241,198,220,0.25);
+}
+
 .animate {
   opacity: 0;
   transform: translateY(30px);
@@ -92,7 +175,63 @@ button {
   transform: translateY(0);
 }
 
+.about {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.about:hover {
+  transform: scale(1.02);
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+}
+
+.projects {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.projects:hover {
+  transform: scale(1.02);
+}
+
+.contact {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.contact:hover {
+  transform: scale(1.02);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+.about {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.about-columns {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-columns ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.8;
 }
