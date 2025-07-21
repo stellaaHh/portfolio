@@ -47,7 +47,7 @@ section {
 }
 
 .metal-text {
-  font-size: 5rem;
+  font-size: 7rem;
   font-weight: bold;
   position: relative;
   background: 
@@ -164,6 +164,10 @@ button {
   box-shadow: 0 4px 16px rgba(241,198,220,0.25);
 }
 
+.resume-btn:hover {
+  color: #fff;
+}
+
 .animate {
   opacity: 0;
   transform: translateY(30px);
@@ -214,20 +218,86 @@ button {
 .stella-bg-img {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 220px; /* Adjust as needed */
+  right: -6%;
+  left: auto;
+  transform: translateY(-45%) translateX(45%);
+  width: 570px; /* Increased size */
+  max-width: 70vw;
   height: auto;
-  opacity: 0.7; /* Adjust for readability */
+  opacity: 0.7;
   z-index: 1;
   pointer-events: none;
-  border: 2px solid red; /* TEMP: helps you see if the image is loading */
-  background: #fff;      /* TEMP: helps you see the image area */
 }
 
-.stella-bg-container h2 {
+.stella-bg-img-large {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  height: auto;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stella-bg-container h2, .stella-bg-container + .tagline, .hero-inner .tagline {
   position: relative;
   z-index: 2;
+}
+
+.about.animate {
+  position: relative;
+}
+
+.about-img-absolute {
+  position: absolute;
+  top: 18%;
+  left: 6%;
+  width: 250px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.about.animate > *:not(.about-img-absolute) {
+  position: relative;
+  z-index: 1;
+}
+
+.projects.animate {
+  position: relative;
+}
+
+.projects-img-absolute {
+  position: absolute;
+  top: 40%;
+  right: 15%;
+  transform: translateY(-10%);
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  pointer-events: auto;
+  opacity: 0.7;
+}
+
+.project-list a:last-child {
+  position: relative;
+}
+
+.project-list a:last-child .projects-img-absolute {
+  position: absolute;
+  top: -38%;
+  left: 20%;
+  transform: translate(70%, 5%);
+  width: 220px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 @keyframes fadeIn {
