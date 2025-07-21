@@ -206,32 +206,31 @@ button {
   transform: scale(1.02);
 }
 
+.stella-bg-container {
+  position: relative;
+  display: inline-block;
+}
+
+.stella-bg-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px; /* Adjust as needed */
+  height: auto;
+  opacity: 0.7; /* Adjust for readability */
+  z-index: 1;
+  pointer-events: none;
+  border: 2px solid red; /* TEMP: helps you see if the image is loading */
+  background: #fff;      /* TEMP: helps you see the image area */
+}
+
+.stella-bg-container h2 {
+  position: relative;
+  z-index: 2;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-.about {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.about h2 {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 1.5rem;
-}
-
-.about-columns {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.about-columns ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  text-align: left;
-  color: #ccc;
-  font-size: 1rem;
-  line-height: 1.8;
 }
