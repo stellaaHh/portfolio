@@ -47,8 +47,8 @@ section {
 }
 
 .metal-text {
-  font-size: 7rem;
-  font-weight: bold;
+  font-size: 6rem;
+  font-weight: 900;
   position: relative;
   background: 
     repeating-linear-gradient(135deg, rgba(180,180,180,0.12) 0px, rgba(180,180,180,0.12) 2px, transparent 2px, transparent 10px), /* subtle grunge */
@@ -65,7 +65,9 @@ section {
     4px 4px 0 #888,
     6px 6px 0 #222,
     0 1px 0 #fff,
-    0 0 2px #fff;
+    0 0 2px #fff,
+    0 0 1px #000,
+    0 0 2px #000;
   letter-spacing: 0.04em;
   margin: 0.5rem 0;
 }
@@ -79,7 +81,7 @@ section {
 
 .metallic-shine {
   background: 
-    linear-gradient(120deg, #fff 50%, #e6e6e6 60%, #bdbdbd 70%, #fff 100%),
+    linear-gradient(120deg, #fff 50%, #e6e6e6 60%, #bdbdbd 50%, #fff 100%),
     linear-gradient(90deg, transparent 30%, #fff 40%, #fff 60%, transparent 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -108,7 +110,7 @@ section {
   box-shadow: 0 0 10px rgba(255,255,255,0.1);
   width: 200px;
   color: inherit;
-  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1);
   cursor: pointer;
 }
 
@@ -123,6 +125,31 @@ form {
   gap: 1rem;
   max-width: 400px;
   margin: 0 auto;
+  position: relative;
+}
+
+
+
+.send-img-absolute-copy {
+  position: absolute;
+  right: 390px;
+  bottom: 200px;
+  width: 220px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.send-img-absolute-copy2 {
+  position: absolute;
+  right: -210px;
+  bottom: 200px;
+  width: 230px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 input, textarea {
@@ -218,13 +245,27 @@ button {
 .stella-bg-img {
   position: absolute;
   top: 50%;
-  right: -6%;
+  right: -20%;
   left: auto;
-  transform: translateY(-45%) translateX(45%);
-  width: 570px; /* Increased size */
+  transform: translateY(-20%) translateX(45%);
+  width: 600px; /* Increased size */
   max-width: 70vw;
   height: auto;
   opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stella-star-img {
+  position: absolute;
+  top: -80%;
+  right: 100%;
+  left: auto;
+  transform: translateY(-65%) translateX(50%);
+  width: 200px; /* Increased size */
+  max-width: 70vw;
+  height: auto;
+  opacity: 0.6;
   z-index: 1;
   pointer-events: none;
 }
@@ -254,14 +295,26 @@ button {
 
 .about-img-absolute {
   position: absolute;
-  top: 18%;
+  top: 7%;
   left: 6%;
-  width: 250px;
+  width: 200px;
   height: auto;
   z-index: 0;
   pointer-events: none;
   opacity: 0.6;
 }
+
+.about-img-absolute-copy{
+  position: absolute;
+  top: 30%;
+  left: 78%;
+  width: 170px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 
 .about.animate > *:not(.about-img-absolute) {
   position: relative;
@@ -272,17 +325,7 @@ button {
   position: relative;
 }
 
-.projects-img-absolute {
-  position: absolute;
-  top: 40%;
-  right: 15%;
-  transform: translateY(-10%);
-  width: 200px;
-  height: auto;
-  z-index: 1;
-  pointer-events: auto;
-  opacity: 0.7;
-}
+
 
 .project-list a:last-child {
   position: relative;
@@ -300,7 +343,136 @@ button {
   opacity: 0.6;
 }
 
+.project2-img-absolute {
+  position: absolute;
+  top: 60%;
+  left: 69%;
+  transform: translateY(-30%) translateX(20px);
+  width: 180px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: none;
+}
+
+.project-card:hover + .project2-img-absolute,
+.project2-img-absolute:hover {
+  transform: translateY(-50%) translateX(20px); /* Prevent zoom on hover */
+}
+
+.between-project-contact-img {
+  position: absolute;
+  left: 0;
+  top: 120vh;
+  width: 120vw;
+  height: auto;
+  opacity: 0.2;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(-8deg) scaleY(0.35) translateX(-8vw);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fancyShimmerBounce {
+  0% {
+    filter: brightness(1.05) drop-shadow(0 0 4px #f1c6dc);
+    transform: scale(1) translateY(0);
+  }
+  10% {
+    filter: brightness(1.15) drop-shadow(0 0 8px #f1c6dc);
+    transform: scale(1.05, 0.97) translateY(-8px);
+  }
+  20% {
+    filter: brightness(1.05) drop-shadow(0 0 4px #f1c6dc);
+    transform: scale(0.98, 1.04) translateY(4px);
+  }
+  30% {
+    filter: brightness(1.08) drop-shadow(0 0 6px #fff);
+    transform: scale(1.02, 0.98) translateY(-2px);
+  }
+  40% {
+    filter: brightness(1.02) drop-shadow(0 0 3px #f1c6dc);
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    filter: brightness(1.05) drop-shadow(0 0 4px #f1c6dc);
+    transform: scale(1) translateY(0);
+  }
+}
+
+.metal-text.animate {
+  animation: fancyShimmerBounce 2.2s cubic-bezier(.4,2,.6,1) 0s 1, shine 2.5s linear 0.5s infinite alternate;
+}
+
+@keyframes shine {
+  0% {
+    text-shadow:
+      2px 2px 0 #bdbdbd,
+      4px 4px 0 #888,
+      6px 6px 0 #222,
+      0 1px 0 #fff,
+      0 0 2px #fff;
+  }
+  100% {
+    text-shadow:
+      0 0 8px #fff,
+      0 0 12px #f1c6dc,
+      0 0 6px #fff,
+      0 1px 0 #fff,
+      0 0 2px #fff;
+  }
+}
+
+@keyframes sendPulseShine {
+  0% {
+    box-shadow: 0 0 0px #f1c6dc, 0 0 0px #fff;
+  }
+  20% {
+    box-shadow: 0 0 12px #f1c6dc, 0 0 24px #fff;
+  }
+  40% {
+    box-shadow: 0 0 8px #f1c6dc, 0 0 16px #fff;
+  }
+  60% {
+    box-shadow: 0 0 16px #f1c6dc, 0 0 32px #fff;
+  }
+  80% {
+    box-shadow: 0 0 8px #f1c6dc, 0 0 8px #fff;
+  }
+  100% {
+    box-shadow: 0 0 0px #f1c6dc, 0 0 0px #fff;
+  }
+}
+
+button[type='submit'] {
+  /* Remove animation by default */
+}
+
+button[type='submit']:hover,
+button[type='submit']:focus {
+  animation: sendPulseShine 2.5s cubic-bezier(.4,2,.6,1) infinite;
+}
+
+@keyframes projectCardPulse {
+  0% {
+    box-shadow: 0 0 0px #f1c6dc, 0 0 0px #fff;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 16px #f1c6dc, 0 0 24px #fff;
+    transform: scale(1.04);
+  }
+  100% {
+    box-shadow: 0 0 0px #f1c6dc, 0 0 0px #fff;
+    transform: scale(1);
+  }
+}
+
+.project-card:hover, .project-card:focus {
+  animation: projectCardPulse 1.2s cubic-bezier(.4,2,.6,1);
 }
