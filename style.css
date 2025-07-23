@@ -111,6 +111,7 @@ section {
   width: 200px;
   color: inherit;
   transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -450,12 +451,25 @@ button {
 }
 
 button[type='submit'] {
-  /* Remove animation by default */
+  background: #f1c6dc;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+  box-shadow: 0 2px 8px rgba(241,198,220,0.15);
+  font-size: 1.1rem;
+  font-family: 'Orbitron', sans-serif;
 }
 
 button[type='submit']:hover,
 button[type='submit']:focus {
-  animation: sendPulseShine 2.5s cubic-bezier(.4,2,.6,1) infinite;
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(241,198,220,0.25);
+  color: #fff;
+  animation: none;
 }
 
 @keyframes projectCardPulse {
@@ -475,4 +489,10 @@ button[type='submit']:focus {
 
 .project-card:hover, .project-card:focus {
   animation: projectCardPulse 1.2s cubic-bezier(.4,2,.6,1);
+}
+
+.about-columns ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
